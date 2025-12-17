@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnBack = new PictureBox();
-            panel1 = new Panel();
+            panelEAN128 = new Panel();
             lblNumber5 = new Label();
             lblNumber4 = new Label();
             lblNumber3 = new Label();
@@ -39,25 +39,28 @@
             lblMsg = new Label();
             label12 = new Label();
             richTextBox1 = new RichTextBox();
-            button1 = new Button();
+            printEAN128 = new Button();
             lblRes5 = new Label();
             lblRes4 = new Label();
             lblRes3 = new Label();
             lblRes2 = new Label();
             lblRes1 = new Label();
-            panel2 = new Panel();
+            panelEAN13 = new Panel();
+            txtBarcode = new TextBox();
             lblMsg2 = new Label();
             label6 = new Label();
             richTextBox2 = new RichTextBox();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            button3 = new Button();
+            lbl2res5 = new Label();
+            lbl2res4 = new Label();
+            lbl2res3 = new Label();
+            lbl2res2 = new Label();
+            lbl2res = new Label();
+            printEAN13 = new Button();
+            printDialog1 = new PrintDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            panelEAN128.SuspendLayout();
+            panelEAN13.SuspendLayout();
             SuspendLayout();
             // 
             // btnBack
@@ -72,28 +75,28 @@
             btnBack.TabStop = false;
             btnBack.Click += btnBack_Click;
             // 
-            // panel1
+            // panelEAN128
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(lblNumber5);
-            panel1.Controls.Add(lblNumber4);
-            panel1.Controls.Add(lblNumber3);
-            panel1.Controls.Add(lblNumber2);
-            panel1.Controls.Add(lblNumber1);
-            panel1.Controls.Add(lblMsg);
-            panel1.Controls.Add(label12);
-            panel1.Controls.Add(richTextBox1);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(lblRes5);
-            panel1.Controls.Add(lblRes4);
-            panel1.Controls.Add(lblRes3);
-            panel1.Controls.Add(lblRes2);
-            panel1.Controls.Add(lblRes1);
-            panel1.Location = new Point(116, 42);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(563, 774);
-            panel1.TabIndex = 1;
+            panelEAN128.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panelEAN128.BorderStyle = BorderStyle.FixedSingle;
+            panelEAN128.Controls.Add(lblNumber5);
+            panelEAN128.Controls.Add(lblNumber4);
+            panelEAN128.Controls.Add(lblNumber3);
+            panelEAN128.Controls.Add(lblNumber2);
+            panelEAN128.Controls.Add(lblNumber1);
+            panelEAN128.Controls.Add(lblMsg);
+            panelEAN128.Controls.Add(label12);
+            panelEAN128.Controls.Add(richTextBox1);
+            panelEAN128.Controls.Add(printEAN128);
+            panelEAN128.Controls.Add(lblRes5);
+            panelEAN128.Controls.Add(lblRes4);
+            panelEAN128.Controls.Add(lblRes3);
+            panelEAN128.Controls.Add(lblRes2);
+            panelEAN128.Controls.Add(lblRes1);
+            panelEAN128.Location = new Point(116, 42);
+            panelEAN128.Name = "panelEAN128";
+            panelEAN128.Size = new Size(563, 774);
+            panelEAN128.TabIndex = 1;
             // 
             // lblNumber5
             // 
@@ -169,18 +172,19 @@
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
-            // button1
+            // printEAN128
             // 
-            button1.BackColor = Color.FromArgb(0, 192, 0);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(184, 726);
-            button1.Name = "button1";
-            button1.Size = new Size(222, 47);
-            button1.TabIndex = 3;
-            button1.Text = "Print";
-            button1.UseVisualStyleBackColor = false;
+            printEAN128.BackColor = Color.FromArgb(0, 192, 0);
+            printEAN128.FlatStyle = FlatStyle.Flat;
+            printEAN128.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            printEAN128.ForeColor = Color.White;
+            printEAN128.Location = new Point(184, 726);
+            printEAN128.Name = "printEAN128";
+            printEAN128.Size = new Size(222, 47);
+            printEAN128.TabIndex = 3;
+            printEAN128.Text = "Print";
+            printEAN128.UseVisualStyleBackColor = false;
+            printEAN128.Click += printEAN128_Click;
             // 
             // lblRes5
             // 
@@ -232,28 +236,38 @@
             lblRes1.TabIndex = 0;
             lblRes1.Text = "7793253002183";
             // 
-            // panel2
+            // panelEAN13
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(lblMsg2);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(richTextBox2);
-            panel2.Controls.Add(label11);
-            panel2.Controls.Add(label10);
-            panel2.Controls.Add(label9);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(button3);
-            panel2.Location = new Point(756, 42);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(563, 774);
-            panel2.TabIndex = 2;
+            panelEAN13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panelEAN13.BorderStyle = BorderStyle.FixedSingle;
+            panelEAN13.Controls.Add(txtBarcode);
+            panelEAN13.Controls.Add(lblMsg2);
+            panelEAN13.Controls.Add(label6);
+            panelEAN13.Controls.Add(richTextBox2);
+            panelEAN13.Controls.Add(lbl2res5);
+            panelEAN13.Controls.Add(lbl2res4);
+            panelEAN13.Controls.Add(lbl2res3);
+            panelEAN13.Controls.Add(lbl2res2);
+            panelEAN13.Controls.Add(lbl2res);
+            panelEAN13.Controls.Add(printEAN13);
+            panelEAN13.Location = new Point(756, 42);
+            panelEAN13.Name = "panelEAN13";
+            panelEAN13.Size = new Size(560, 787);
+            panelEAN13.TabIndex = 2;
+            // 
+            // txtBarcode
+            // 
+            txtBarcode.Location = new Point(156, 19);
+            txtBarcode.Name = "txtBarcode";
+            txtBarcode.Size = new Size(258, 23);
+            txtBarcode.TabIndex = 17;
+            txtBarcode.TextChanged += txtBarcode_TextChanged;
+            txtBarcode.KeyPress += textBox1_KeyPress;
             // 
             // lblMsg2
             // 
             lblMsg2.AutoSize = true;
-            lblMsg2.Location = new Point(219, 106);
+            lblMsg2.Location = new Point(201, 48);
             lblMsg2.Name = "lblMsg2";
             lblMsg2.Size = new Size(44, 15);
             lblMsg2.TabIndex = 16;
@@ -263,7 +277,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(42, 66);
+            label6.Location = new Point(42, 21);
             label6.Name = "label6";
             label6.Size = new Size(90, 17);
             label6.TabIndex = 13;
@@ -271,83 +285,93 @@
             // 
             // richTextBox2
             // 
+            richTextBox2.Enabled = false;
             richTextBox2.Font = new Font("Century Gothic", 14.25F);
-            richTextBox2.Location = new Point(156, 48);
+            richTextBox2.Location = new Point(156, 76);
             richTextBox2.Name = "richTextBox2";
             richTextBox2.Size = new Size(258, 45);
             richTextBox2.TabIndex = 12;
             richTextBox2.Text = "";
             // 
-            // label11
+            // lbl2res5
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            label11.Location = new Point(124, 614);
-            label11.Name = "label11";
-            label11.Size = new Size(320, 79);
-            label11.TabIndex = 5;
-            label11.Text = "7793253002183";
+            lbl2res5.AutoSize = true;
+            lbl2res5.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            lbl2res5.Location = new Point(175, 614);
+            lbl2res5.Name = "lbl2res5";
+            lbl2res5.Size = new Size(320, 79);
+            lbl2res5.TabIndex = 5;
+            lbl2res5.Text = "7793253002183";
             // 
-            // label10
+            // lbl2res4
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            label10.Location = new Point(124, 492);
-            label10.Name = "label10";
-            label10.Size = new Size(320, 79);
-            label10.TabIndex = 10;
-            label10.Text = "7793253002183";
+            lbl2res4.AutoSize = true;
+            lbl2res4.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            lbl2res4.Location = new Point(175, 492);
+            lbl2res4.Name = "lbl2res4";
+            lbl2res4.Size = new Size(320, 79);
+            lbl2res4.TabIndex = 10;
+            lbl2res4.Text = "7793253002183";
             // 
-            // label9
+            // lbl2res3
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            label9.Location = new Point(124, 379);
-            label9.Name = "label9";
-            label9.Size = new Size(320, 79);
-            label9.TabIndex = 9;
-            label9.Text = "7793253002183";
+            lbl2res3.AutoSize = true;
+            lbl2res3.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            lbl2res3.Location = new Point(175, 379);
+            lbl2res3.Name = "lbl2res3";
+            lbl2res3.Size = new Size(320, 79);
+            lbl2res3.TabIndex = 9;
+            lbl2res3.Text = "7793253002183";
             // 
-            // label8
+            // lbl2res2
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            label8.Location = new Point(124, 252);
-            label8.Name = "label8";
-            label8.Size = new Size(320, 79);
-            label8.TabIndex = 8;
-            label8.Text = "7793253002183";
+            lbl2res2.AutoSize = true;
+            lbl2res2.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            lbl2res2.Location = new Point(175, 252);
+            lbl2res2.Name = "lbl2res2";
+            lbl2res2.Size = new Size(320, 79);
+            lbl2res2.TabIndex = 8;
+            lbl2res2.Text = "7793253002183";
             // 
-            // label7
+            // lbl2res
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            label7.Location = new Point(124, 134);
-            label7.Name = "label7";
-            label7.Size = new Size(320, 79);
-            label7.TabIndex = 7;
-            label7.Text = "7793253002183";
+            lbl2res.AutoSize = true;
+            lbl2res.Font = new Font("Code EAN13", 48F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            lbl2res.Location = new Point(175, 134);
+            lbl2res.Name = "lbl2res";
+            lbl2res.Size = new Size(320, 79);
+            lbl2res.TabIndex = 7;
+            lbl2res.Text = "7793253002183";
             // 
-            // button3
+            // printEAN13
             // 
-            button3.BackColor = Color.FromArgb(0, 192, 0);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(156, 726);
-            button3.Name = "button3";
-            button3.Size = new Size(222, 47);
-            button3.TabIndex = 5;
-            button3.Text = "Print";
-            button3.UseVisualStyleBackColor = false;
+            printEAN13.BackColor = Color.FromArgb(0, 192, 0);
+            printEAN13.FlatStyle = FlatStyle.Flat;
+            printEAN13.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            printEAN13.ForeColor = Color.White;
+            printEAN13.Location = new Point(175, 726);
+            printEAN13.Name = "printEAN13";
+            printEAN13.Size = new Size(222, 47);
+            printEAN13.TabIndex = 5;
+            printEAN13.Text = "Print";
+            printEAN13.UseVisualStyleBackColor = false;
+            printEAN13.Click += printEAN13_Click;
+            // 
+            // printDialog1
+            // 
+            printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1440, 857);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(panelEAN13);
+            Controls.Add(panelEAN128);
             Controls.Add(btnBack);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
@@ -355,30 +379,30 @@
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panelEAN128.ResumeLayout(false);
+            panelEAN128.PerformLayout();
+            panelEAN13.ResumeLayout(false);
+            panelEAN13.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private PictureBox btnBack;
-        private Panel panel1;
-        private Panel panel2;
-        private Button button1;
+        private Panel panelEAN128;
+        private Panel panelEAN13;
+        private Button printEAN128;
         private Label lblRes5;
         private Label lblRes4;
         private Label lblRes3;
         private Label lblRes2;
         private Label lblRes1;
-        private Button button3;
-        private Label label11;
-        private Label label10;
-        private Label label9;
-        private Label label8;
-        private Label label7;
+        private Button printEAN13;
+        private Label lbl2res5;
+        private Label lbl2res4;
+        private Label lbl2res3;
+        private Label lbl2res2;
+        private Label lbl2res;
         private RichTextBox richTextBox1;
         private RichTextBox richTextBox2;
         private Label label6;
@@ -390,5 +414,8 @@
         private Label lblNumber3;
         private Label lblNumber2;
         private Label lblNumber1;
+        private TextBox txtBarcode;
+        private PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
