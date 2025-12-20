@@ -22,17 +22,14 @@ namespace EAN
             {
                 lblMsg.Visible = false;
 
-                // Encode barcode using Code128 class
                 string encoded = Code128Class.EncodeB(richTextBox1.Text);
 
-                // Assign barcode bars to barcode labels
                 lblRes1.Text = encoded;
                 lblRes2.Text = encoded;
                 lblRes3.Text = encoded;
                 lblRes4.Text = encoded;
                 lblRes5.Text = encoded;
 
-                // Assign human-readable digits (normal font)
                 lblNumber1.Text = richTextBox1.Text;
                 lblNumber2.Text = richTextBox1.Text;
                 lblNumber3.Text = richTextBox1.Text;
@@ -43,7 +40,7 @@ namespace EAN
             {
                 lblMsg.Visible = true;
                 lblMsg.ForeColor = System.Drawing.Color.Orange;
-                lblMsg.Text = "ENTER STUDENT ID TO GENERATE BARCODE";
+                lblMsg.Text = "ENTER VALUE TO GENERATE BARCODE";
             }
         }
 
@@ -78,7 +75,7 @@ namespace EAN
                 {
                     lblMsg2.Visible = true;
                     lblMsg2.ForeColor = System.Drawing.Color.Orange;
-                    lblMsg2.Text = "ENTER PRODUCT CODE";
+                    lblMsg2.Text = "ENTER VALUE";
                 }
             }
         }
@@ -152,6 +149,27 @@ namespace EAN
         private void printEAN13_Click(object sender, EventArgs e)
         {
             Print(this.panelEAN13);
+        }
+
+        private void btnBack_MouseEnter(object sender, EventArgs e)
+        {
+            btnBack.Cursor = Cursors.Hand;
+        }
+
+        private void printEAN13_MouseEnter(object sender, EventArgs e)
+        {
+            printEAN13.Cursor = Cursors.Hand;
+        }
+
+        private void printEAN128_MouseEnter(object sender, EventArgs e)
+        {
+            printEAN128.Cursor = Cursors.Hand;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            lblMsg.Visible = false;
+            lblMsg2.Visible = false;
         }
     }
 }
